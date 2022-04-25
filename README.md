@@ -14,8 +14,9 @@
 | id       | integer  | 
 | title    | string   | 
 | content  | string   | 
-| deadline | integer  | 
-| priority | integer  | 
+| deadline | date     | 
+| priority | string   | 
+| status   | string   | 
 | user_id  | integer  | 
 
 * Label
