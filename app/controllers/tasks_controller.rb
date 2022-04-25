@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_blog, only: [:edit, :update]
+  before_action :set_blog, only: [:edit, :update, :destroy]
 
   def index
     @tasks = Task.all
@@ -23,10 +23,15 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: "ブログを編集しました！"
+      redirect_to tasks_path, notice: "タスクを編集しました！"
     else
       render :edit
     end
+  end
+
+  def destroy
+    @task.destroy
+    redirect_to tasks_path, notice:"ブログを削除しました！"
   end
 
   private
