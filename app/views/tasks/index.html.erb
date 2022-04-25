@@ -16,6 +16,9 @@
     <td><%= task.deadline %></td>
     <td><%= task.priority %></td>
     <td><%= task.status %></td>
+    <td><%= link_to "タスクを編集する", edit_task_path(task.id) %></td>
   </tr>
 <% end %>
 </table>
+
+<%= link_to '新しいタスクを投稿する', new_task_path %>
