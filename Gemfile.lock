@@ -234,7 +234,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
-  capybara (>= 2.15)
+  capybara (>= 3.36.0)
   factory_bot_rails
   faker
   jbuilder (~> 2.7)
