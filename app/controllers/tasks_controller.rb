@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
     @tasks = Task.all
@@ -12,10 +12,13 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to new_task_path, notice: "タスクを作成しました！"
+      redirect_to task_path(@task.id), notice: "タスクを作成しました！"
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def edit
