@@ -3,19 +3,15 @@ RSpec.describe 'タスク管理機能', type: :system do
   describe '新規作成機能' do
     context 'タスクを新規作成した場合' do
       it '作成したタスクが表示される' do
-        task = FactoryBot.create(:task, title: 'task')
-        # タスク一覧ページに遷移
-        visit tasks_path
-        # ページ遷移直後でデバッグ
-        
-        # タスク一覧ページに遷移できているかを確認
-        current_path
-        # タスクがデータベースに作成されているかを確認
-        Task.count
-        # 表示するHTMLにタスク情報が入っているかを確認
-        page.html
-        expect(page).to have_content 'task'
-        
+        visit new_task_path
+        fill_in 'Title', with: 'デジモン'
+        fill_in 'Content', with: 'スパゲート'
+        fill_in 'Deadline', with: '2022-04-03'
+        fill_in 'Priority', with: '低'
+        fill_in 'Status', with: '未着手'
+        click_on 'aaa'
+        expect(page).to have_content "デジモン"
+        expect(page).to have_content "スパゲート"
       end
     end
   end
