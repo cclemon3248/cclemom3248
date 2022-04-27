@@ -12,6 +12,9 @@ RSpec.describe 'タスク管理機能', type: :system do
         click_on 'aaa'
         expect(page).to have_content "デジモン"
         expect(page).to have_content "スパゲート"
+        expect(page).to have_content "2022-04-03"
+        expect(page).to have_content "低"
+        expect(page).to have_content "未着手"
       end
     end
   end
