@@ -1,0 +1,9 @@
+<h1>タスク詳細</h1>
+<p><%= notice %></p>
+<p>タイトル： <%= @task.title %></p>
+<p>内容： <%= @task.content %></p>
+<p>終了期限： <%= @task.deadline %></p>
+<p>優先順位： <%= @task.priority %></p>
+<p>状態： <%= @task.status %></p>
+
+<%= link_to 'タスクに戻る', tasks_path %>
