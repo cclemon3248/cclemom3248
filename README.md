@@ -1,24 +1,34 @@
-# README
+* User
+-------------------------------------------------
+| Colume          | Type     | 
+| :-------------: | -------- | 
+| id              | integer  | 
+| email           | string   | 
+| password_digest | string   | 
+| name            | string   | 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Task 
+-------------------------------------------------
+| Column   | Type     | 
+| -------- | -------- | 
+| id       | integer  | 
+| title    | string   | 
+| content  | string   | 
+| deadline | date     | 
+| priority | string   | 
+| status   | string   | 
+| user_id  | integer  | 
 
-Things you may want to cover:
+* Label
+-------------------------------------------------
+| Column      | Type     | 
+| ----------- | -------- | 
+| id          | integer  | 
+| explanation | text     | 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Connect
+-------------------------------------------------
+| Column   | Type     | 
+| -------- | -------- | 
+| task_id  | integer  | 
+| label_id | integer  | 
