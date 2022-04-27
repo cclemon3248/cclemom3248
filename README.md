@@ -1,5 +1,5 @@
-* User
--------------------------------------------------
+User
+--
 | Colume          | Type     | 
 | :-------------: | -------- | 
 | id              | integer  | 
@@ -7,8 +7,8 @@
 | password_digest | string   | 
 | name            | string   | 
 
-* Task 
--------------------------------------------------
+Task 
+--
 | Column   | Type     | 
 | -------- | -------- | 
 | id       | integer  | 
@@ -19,15 +19,15 @@
 | status   | string   | 
 | user_id  | integer  | 
 
-* Label
--------------------------------------------------
-| Column      | Type     | 
+Label
+--
+| Column   | Type     | 
 | ----------- | -------- | 
 | id          | integer  | 
 | explanation | text     | 
 
-* Connect
--------------------------------------------------
+Connect
+--
 | Column   | Type     | 
 | -------- | -------- | 
 | task_id  | integer  | 
