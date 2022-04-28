@@ -8,20 +8,24 @@
     <th>終了期限</th>
     <th>優先順位</th>
     <th>状態</th>
+    <th>作成日時</th>
   </tr>
 
-<% @tasks.each do |task| %>
-  <tr>
+  
+  <% @tasks.each do |task| %>
+  <tr class="task_row">
     <td><%= task.title %></td>
     <td><%= task.content %></td>
     <td><%= task.deadline %></td>
     <td><%= task.priority %></td>
     <td><%= task.status %></td>
+    <td><%= task.created_at %></td>
     <td><%= link_to "タスクの詳細", task_path(task.id) %></td>
     <td><%= link_to "タスクを編集する", edit_task_path(task.id) %></td>
     <td><%= link_to 'タスクを削除する', task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
-<% end %>
+  <% end %>
+  
 </table>
 
 <%= link_to '新しいタスクを投稿する', new_task_path %>
