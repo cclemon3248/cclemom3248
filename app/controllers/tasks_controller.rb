@@ -41,6 +41,14 @@ class TasksController < ApplicationController
     redirect_to tasks_path, notice:"ブログを削除しました！"
   end
 
+  def search
+    if params[:title] == true
+      @tasks = Task.where("title LIKE ?", "%#{params[:title]}%")
+    elsif params[:status] == true
+      @tasks = Task.where("status LIKE ?", "%#{params[:status]}%")
+    end
+  end
+
   private
 
   def set_blog
