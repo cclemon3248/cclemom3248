@@ -42,9 +42,10 @@ class TasksController < ApplicationController
   end
 
   def search
-    if params[:title] == true
+    if params[:title]
       @tasks = Task.where("title LIKE ?", "%#{params[:title]}%")
-    elsif params[:status] == true
+    end
+    if params[:status]
       @tasks = Task.where("status LIKE ?", "%#{params[:status]}%")
     end
   end
