@@ -1,3 +1,17 @@
-<h2>タスク編集</h2>
-
-<%= render 'form' %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2 mb-5">
+      <div class="list-group">
+        <a href="http://localhost:3000/" class="list-group-item list-group-item-action active">タスク情報</a>
+        <a href="http://localhost:3000/tasks/new" class="list-group-item list-group-item-action">タスク作成</a>
+        <a href="#" class="list-group-item list-group-item-action">ユーザー情報</a>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <p class="h3 border-bottom pb-2 mb-3">タスク編集</p>
+      <p><%= notice %></p>
+      <p>タスクを編集することができます。</p>
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>

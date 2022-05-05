@@ -1,9 +1,23 @@
-<h1>タスク詳細</h1>
-<p><%= notice %></p>
-<p>タイトル： <%= @task.title %></p>
-<p>内容： <%= @task.content %></p>
-<p>終了期限： <%= @task.deadline %></p>
-<p>優先順位： <%= @task.priority %></p>
-<p>状態： <%= @task.status %></p>
-
-<%= link_to 'タスクに戻る', tasks_path %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2 mb-5">
+      <div class="list-group">
+        <a href="http://localhost:3000/" class="list-group-item list-group-item-action active">タスク情報</a>
+        <a href="http://localhost:3000/tasks/new" class="list-group-item list-group-item-action">タスク作成</a>
+        <a href="#" class="list-group-item list-group-item-action">ユーザー情報</a>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <p class="h3 border-bottom pb-2 mb-3">タスク詳細</p>
+      <p><%= notice %></p>
+      <p>タスクの詳細を確認することができます。</p>
+      <p><%= notice %></p>
+      <p class="mt-5">タイトル： <%= @task.title %></p>
+      <p>内容： <%= @task.content %></p>
+      <p>終了期限： <%= @task.deadline %></p>
+      <p>状態： <%= @task.status %></p>
+      <p class="mb-5">優先順位： <%= @task.priority %></p>
+      <%= link_to 'タスクに戻る', tasks_path %>
+    </div>
+  </div>
+</div>
