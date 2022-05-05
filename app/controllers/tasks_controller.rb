@@ -43,11 +43,13 @@ class TasksController < ApplicationController
 
   def search
     if params[:title] && params[:status]
-      @tasks = Task.where("title LIKE ? AND status LIKE ?", "%#{params[:title]}%", "%#{params[:status]}%")
+      @tasks = Task.top3(params[:title], params[:status])
     elsif params[:title]
-      @tasks = Task.where("title LIKE ?", "%#{params[:title]}%")
+      @tasks = Task.top1(params[:title])
     elsif params[:status]
-      @tasks = Task.where("status LIKE ?", "%#{params[:status]}%")
+      @tasks = Task.top2(params[:status])
+    else
+      @tasks = Task.all
     end
   end
 
