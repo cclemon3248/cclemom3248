@@ -1,9 +1,10 @@
 FactoryBot.define do
   factory :task do
-    title { 'a' }
-    content { 'b' }
+    title { 'ポケモン' }
+    content { '151' }
     deadline { '2022/03/31' }
-    priority { 'c' }
-    status { 'd' }
+    status { '未着手' }
+    priority { '低' }
+    
   end
 end
