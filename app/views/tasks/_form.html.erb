@@ -28,7 +28,7 @@
   </div>
   <div class="task_priority">
   <%= form.label :priority %>
-  <%= form.select :priority, ["高", "中", "低"], { include_blank: "優先度" } %>
+  <%= form.select :priority, [:高, :中, :低], { include_blank: "優先度" } %>
   </div>
   <%= form.submit value: "aaa", class: "mt-3 btn btn-primary" %>
 <% end %>
