@@ -22,13 +22,13 @@
    <%= form.label :deadline %>
     <%= form.date_field :deadline %>
   </div>
-  <div class="task_priority">
-    <%= form.label :priority %>
-    <%= form.text_field :priority %>
-  </div>
   <div class="task_status">
     <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.select :status, ["未着手", "着手中", "完了"], { include_blank: "ステータス" } %>
   </div>
-  <%= form.submit value: "aaa" %>
+  <div class="task_priority">
+  <%= form.label :priority %>
+  <%= form.select :priority, [:高, :中, :低], { include_blank: "優先度" } %>
+  </div>
+  <%= form.submit value: "aaa", class: "mt-3 btn btn-primary" %>
 <% end %>

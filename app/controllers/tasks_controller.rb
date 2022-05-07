@@ -2,7 +2,13 @@ class TasksController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all.order(created_at: "DESC")
+    if params[:sort_expired]
+      @tasks = Task.page(params[:page]).per(5).order(deadline: :DESC)
+    elsif params[:sort_priority]
+      @tasks = Task.page(params[:page]).per(5).order(priority: :DESC)
+    else
+      @tasks = Task.page(params[:page]).per(5).order(created_at: :DESC)
+    end
   end
 
   def new
@@ -35,6 +41,18 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     redirect_to tasks_path, notice:"ブログを削除しました！"
+  end
+
+  def search
+    if params[:task][:title] && params[:task][:status]
+      @tasks = Task.top3(params[:task][:title], params[:task][:status])
+    elsif params[:task][:title]
+      @tasks = Task.top1(params[:task][:title])
+    elsif params[:task][:status]
+      @tasks = Task.top2(params[:task][:status])
+    else
+      @tasks = Task.all
+    end
   end
 
   private

@@ -8,14 +8,16 @@
       </div>
     </div>
     <div class="col-md-10">
-    <p class="h3 border-bottom pb-2 mb-3">タスク情報</p>
-    <p>現在登録しているタスクの情報です。</p>
+    <p class="h3 border-bottom pb-2 mb-3">検索一覧</p>
     <p><%= notice %></p>
     <header>
+      <p>検索結果が表示されます。</p>
+      <p>タスク： <%= params[:task][:title] %></p>
+      <p>ステータス： <%= params[:task][:status] %></p>
       <%= form_with scope: :task, url:search_tasks_path, local: true, method: "get" do |form| %>
         <%= form.label :title, "Search for" %>
         <%= form.text_field :title, placeholder: "タスク名" %>
-        <%= form.select :status, ["未着手", "着手中", "完了"],  { include_blank: "ステータス" } %>
+        <%= form.select :status, ["未着手", "着手中", "完了"], { include_blank: "ステータス" } %>
         <%= form.submit "Search" %>
       <% end %>
     </header>
@@ -27,7 +29,7 @@
           <th scope="col"><%= link_to "終了期限", tasks_path(sort_expired: "true") %></th>
           <th scope="col">登録日時</th>
           <th scope="col">ステータス</th>
-          <th scope="col"><%= link_to "優先度", tasks_path(sort_priority: "true") %></th>
+          <th scope="col">優先度</th>
         </tr>
       </thead>
       <tbody>
@@ -47,7 +49,6 @@
       </tbody>
     </table>
       <%= link_to '新しいタスクを投稿する', new_task_path %>
-      <%= paginate @tasks %>
     </div>
   </div>
 </div>
