@@ -1,3 +1,16 @@
-<h1><%= @user.name %>のページ</h1>
-
-<p>メールアドレス: <%= @user.email %></p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2 mb-5">
+      <div class="list-group">
+        <a href="/" class="list-group-item list-group-item-action active">タスク情報</a>
+        <a href="/tasks/new" class="list-group-item list-group-item-action">タスク作成</a>
+        <a href="/users/<%= current_user.id %>" class="list-group-item list-group-item-action">ユーザー情報</a>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <p class="h3 border-bottom pb-2 mb-3"><%= @user.name %>のページ</p>
+      <p>タスクの詳細を確認することができます。</p>
+      <p>メールアドレス: <%= @user.email %></p>
+    </div>
+  </div>
+</div>
