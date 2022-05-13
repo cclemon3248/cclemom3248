@@ -20,6 +20,18 @@ class UsersController < ApplicationController
     redirect_to tasks_path unless @user.id == current_user.id
   end
 
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_path
+  end
+
   private
 
   def user_params
