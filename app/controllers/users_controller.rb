@@ -17,7 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    redirect_to tasks_path unless @user.id == current_user.id
+    unless @user.id == current_user.id || current_user.try(:admin?)
+      redirect_to tasks_path
+    end
   end
 
   def edit
