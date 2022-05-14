@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   validates :admin, inclusion: {in: [true, false]}
 
+  
   def admin_update_exist
     if User.where(admin: true).count == 1 && self.admin == true
       throw(:abort)

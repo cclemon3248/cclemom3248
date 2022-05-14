@@ -80,12 +80,12 @@ describe "管理画面のテスト" do
       click_button 'Log in'
       visit admin_users_path
       click_on 'ユーザー作成'
-      fill_in "Name", with: 'junho'
+      fill_in "Name", with: 'junhoo'
       fill_in "Email", with: 'cclemon3247@naver.com'
       fill_in "Password", with: "djdjdjdj1"
       fill_in "Password confirmation", with: "djdjdjdj1"
       click_button 'Create my account'
-      expect(page).to have_content 'cclemon3247@naver.com'
+      expect(page).to have_content 'junhoo'
     end
     it '管理ユーザはユーザの詳細画面にアクセスできること' do
       visit new_session_path

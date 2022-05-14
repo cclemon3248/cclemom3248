@@ -1,20 +1,20 @@
 <br>
-<%= form_with(model: [:admin,@user], local: true) do |form| %>
+<%= form_with model: [:admin, @user], local: true do |f| %>
   <div class="user_name">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
   <div class="user_email">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
   </div>
   <div class="user_password">
-   <%= form.label :password %>
-    <%= form.text_field :password %>
+   <%= f.label :password %>
+    <%= f.text_field :password %>
   </div>
   <div class="admin">
-    <%= form.label :admin %>
-    <%= form.select :admin, [false, true] %>
+    <%= f.label :admin %>
+    <%= f.select :admin, [false, true] %>
   </div>
-  <%= form.submit value: "aaa", class: "mt-3 btn btn-primary" %>
+  <%= f.submit value: "aaa", class: "mt-3 btn btn-primary" %>
 <% end %>
