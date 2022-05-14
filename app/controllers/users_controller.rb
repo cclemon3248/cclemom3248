@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
-  
+
   def new
     @user = User.new
-    if current_user.try(:admin?) == true
-      redirect_to tasks_path
-    end
+    signing_in
   end
 
   def create
