@@ -102,9 +102,9 @@ describe "管理画面のテスト" do
       click_button 'Log in'
       visit admin_users_path
       all("tbody tr")[1].click_link "編集"
-      fill_in "Name", with: 'pikachu'
-      fill_in "Email", with: 'cclemon3247@naver.com'
+      fill_in "Name", with: "pikachu"
       fill_in "Password", with: "djdjdjdj1"
+      select true, from: "Admin"
       click_button 'aaa'
       expect(page).to have_content 'pikachu'
     end
