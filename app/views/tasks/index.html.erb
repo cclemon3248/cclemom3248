@@ -4,7 +4,7 @@
       <div class="list-group">
         <a href="/" class="list-group-item list-group-item-action active">タスク情報</a>
         <a href="/tasks/new" class="list-group-item list-group-item-action">タスク作成</a>
-        <a href="#" class="list-group-item list-group-item-action">ユーザー情報</a>
+        <a href="/users/<%= current_user.id %>" class="list-group-item list-group-item-action">ユーザー情報</a>
       </div>
     </div>
     <div class="col-md-10">
@@ -22,6 +22,7 @@
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
+          <th scope="col">ユーザー名</th>
           <th scope="col">タスク名</th>
           <th scope="col">詳しい内容</th>
           <th scope="col"><%= link_to "終了期限", tasks_path(sort_expired: "true") %></th>
@@ -33,6 +34,7 @@
       <tbody>
         <% @tasks.each do |task| %>
           <tr class="task_row">
+            <td><%= task.user.name %></td>
             <td><%= task.title %></td>
             <td><%= task.content %></td>
             <td><%= task.deadline %></td>

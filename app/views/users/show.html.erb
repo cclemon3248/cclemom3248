@@ -8,10 +8,9 @@
       </div>
     </div>
     <div class="col-md-10">
-      <p class="h3 border-bottom pb-2 mb-3">タスク編集</p>
-      <p><%= notice %></p>
-      <p>タスクを編集することができます。</p>
-      <%= render 'form' %>
+      <p class="h3 border-bottom pb-2 mb-3"><%= @user.name %>のページ</p>
+      <p>タスクの詳細を確認することができます。</p>
+      <p>メールアドレス: <%= @user.email %></p>
     </div>
   </div>
 </div>

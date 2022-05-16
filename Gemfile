@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
+# has_secure_passwordメソッド用gemファイル
+gem "bcrypt"
+
 # Rspec用に使うgemファイル
 gem 'rexml'
 gem 'kaminari'

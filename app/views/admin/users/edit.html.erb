@@ -1,0 +1,20 @@
+<br>
+<%= form_with model: [:admin, @user], local: true do |f| %>
+  <div class="user_name">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="user_email">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="user_password">
+   <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+  <div class="admin">
+    <%= f.label :admin %>
+    <%= f.select :admin, [false, true] %>
+  </div>
+  <%= f.submit value: "aaa", class: "mt-3 btn btn-primary" %>
+<% end %>
