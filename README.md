@@ -24,7 +24,7 @@ Label
 | Column   | Type     | 
 | ----------- | -------- | 
 | id          | integer  | 
-| explanation | text     | 
+| tag         | string   | 
 
 Connect
 --

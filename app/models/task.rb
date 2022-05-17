@@ -9,4 +9,6 @@ class Task < ApplicationRecord
   scope :top2, ->(param2){ where("status LIKE ?", "%#{param2}%") }
   scope :top3, ->(param1, param2) { where("title LIKE ? AND status LIKE ?", "%#{param1}%", "%#{param2}%") }
   belongs_to :user
+  has_many :connects, dependent: :destroy
+  has_many :labels, through: :connects, source: :label
 end
