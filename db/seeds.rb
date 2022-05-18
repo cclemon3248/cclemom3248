@@ -1,10 +1,17 @@
-# name = "seed"
-# email = "cclemon3246@gmail.com"
-# password = "djdjdjdj1"
-# User.create!(name: name, email: email, password: password, admin: true)
+10.times do |n|
+  Label.create!(
+    tag: "あ#{n}"
+  )
+end
 
-Label.create(tag: "男")
-Label.create(tag: "おじさん")
-Label.create(tag: "おじいさん")
-Label.create(tag: "父上")
-Label.create(tag: "お兄さん")
+10.times do |n|
+  User.create!(
+    name: "cclemon#{7000 + n}@gmail.com",
+    email: "テスト太郎#{n + 1}",
+    password: "djdjdjdj1"
+  )
+end
+
+User.all.each do |user|
+  user.tasks.create!(title: "あ", content: "あ", deadline: "2022/05.01", priority: 1, status: "未着手")
+end

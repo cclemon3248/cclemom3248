@@ -36,7 +36,7 @@
       <%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
       <%= label.tag %>
       <% elsif action_name == 'edit' %>
-        <%= form.check_box :label_ids, { multiple: true, checked: @task.label_ids.include?(label.id), disabled: label[:disabled], include_hidden: false }, label[:id] %>
+        <%= form.check_box :label_ids, { multiple: true, checked: @task.label_ids.include?(label.id), disabled: label[:disabled], include_hidden: false}, label[:id], "" %>
         <%= label.tag %>
       <% end %>
     <% end %>

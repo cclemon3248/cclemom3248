@@ -31,6 +31,9 @@ class TasksController < ApplicationController
   end
 
   def update
+    unless params[:task][:label_ids]
+      @task.connects.delete_all
+    end
     if @task.update(task_params)
       redirect_to tasks_path, notice: "タスクを編集しました！"
     else
@@ -50,7 +53,7 @@ class TasksController < ApplicationController
       @tasks = current_user.tasks.top1(params[:task][:title])
     elsif params[:task][:status].present?
       @tasks = current_user.tasks.top2(params[:task][:status])
-    elsif params[:task][:label_ids]
+    elsif params[:task][:label_ids].present?
       @tasks = Label.find(params[:task][:label_ids]).tasks
     else
       @tasks = current_user.tasks
