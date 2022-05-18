@@ -87,7 +87,6 @@ describe "ラベル検索" do
       select "おじさん", from: "task_label_ids"
       click_on "Search"
       expect(page).to have_content 'おじいさん'
-      binding.irb
     end
   end
 end
