@@ -5,11 +5,8 @@
 end
 
 10.times do |n|
-  User.create!(
-    name: "cclemon#{7000 + n}@gmail.com",
-    email: "テスト太郎#{n + 1}",
-    password: "djdjdjdj1"
-  )
+  email = "cclemon#{n + 1}@gmail.com"
+  User.create(name: "太郎#{n + 1}", email: email, password: "djdjdjdj1")
 end
 
 User.all.each do |user|
