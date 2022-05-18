@@ -14,10 +14,13 @@
       <p>検索結果が表示されます。</p>
       <p>タスク： <%= params[:task][:title] %></p>
       <p>ステータス： <%= params[:task][:status] %></p>
+      <p>タグ : <%= Label.find(params[:task][:label_ids]).tag if params[:task][:label_ids].present? %> <p>
+
       <%= form_with scope: :task, url:search_tasks_path, local: true, method: "get" do |form| %>
         <%= form.label :title, "Search for" %>
         <%= form.text_field :title, placeholder: "タスク名" %>
         <%= form.select :status, ["未着手", "着手中", "完了"], { include_blank: "ステータス" } %>
+        <%= form.select("label_ids", Label.all.collect { |p| [ p.tag, p.id ] }, { include_blank: true }) %>
         <%= form.submit "Search" %>
       <% end %>
     </header>
@@ -30,6 +33,10 @@
           <th scope="col">登録日時</th>
           <th scope="col">ステータス</th>
           <th scope="col">優先度</th>
+          <th scope="col">詳細</th>
+          <th scope="col">編集</th>
+          <th scope="col">削除</th>
+          <th scope="col">タグ</th>
         </tr>
       </thead>
       <tbody>
@@ -44,6 +51,9 @@
             <td><%= link_to "詳細", task_path(task.id) %></td>
             <td><%= link_to "編集", edit_task_path(task.id) %></td>
             <td><%= link_to '削除', task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+            <% task.labels.each do |label| %>
+              <td><%= label.tag %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

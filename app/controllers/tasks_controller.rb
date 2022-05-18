@@ -31,6 +31,9 @@ class TasksController < ApplicationController
   end
 
   def update
+    unless params[:task][:label_ids]
+      @task.connects.delete_all
+    end
     if @task.update(task_params)
       redirect_to tasks_path, notice: "タスクを編集しました！"
     else
@@ -44,12 +47,14 @@ class TasksController < ApplicationController
   end
 
   def search
-    if params[:task][:title] && params[:task][:status]
+    if params[:task][:title].present?  && params[:task][:status].present?
       @tasks = current_user.tasks.top3(params[:task][:title], params[:task][:status])
-    elsif params[:task][:title]
+    elsif params[:task][:title].present?
       @tasks = current_user.tasks.top1(params[:task][:title])
-    elsif params[:task][:status]
+    elsif params[:task][:status].present?
       @tasks = current_user.tasks.top2(params[:task][:status])
+    elsif params[:task][:label_ids].present?
+      @tasks = Label.find(params[:task][:label_ids]).tasks
     else
       @tasks = current_user.tasks
     end
@@ -62,6 +67,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :content, :deadline, :priority, :status)
+    params.require(:task).permit(:title, :content, :deadline, :priority, :status, label_ids: [])
   end
 end

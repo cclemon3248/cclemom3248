@@ -30,5 +30,17 @@
   <%= form.label :priority %>
   <%= form.select :priority, [:高, :中, :低], { include_blank: "優先度" } %>
   </div>
+  <div>
+    <% Label.all.each do |label| %>
+      <% if action_name == 'new' %>
+      <%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
+      <%= label.tag %>
+      <% elsif action_name == 'edit' %>
+        <%= form.check_box :label_ids, { multiple: true, checked: @task.label_ids.include?(label.id), disabled: label[:disabled], include_hidden: false}, label[:id], "" %>
+        <%= label.tag %>
+      <% end %>
+    <% end %>
+  </div>
+  <br>
   <%= form.submit value: "aaa", class: "mt-3 btn btn-primary" %>
 <% end %>
